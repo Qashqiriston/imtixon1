@@ -8,16 +8,11 @@
   </div>
 </template>
 
-<script setup>
-if (process.client) {
-  const heading = document.querySelector(".heading");
-}
-
-const commonStore = useCommonStore();
-
-const counter = computed(() => commonStore.counter);
-
+<script setup lang="ts">
 const { showToast } = useCustomToast();
+import type { Sanjar } from "~/types/post"
+
+const sanjar = ref<Sanjar>()
 
 const onClick = () => {
   showToast("Success!", "error");
